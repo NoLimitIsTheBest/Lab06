@@ -1,14 +1,14 @@
 function initialize(){
-    var state = "*Offline"
+    var state = "*Offline*"
     if(navigator.onLine){
-        status = "*Online";
+        status = "*Online*";
         retrieveContacts()
     }else{
         const localStorage = window.localStorage;
         if(localStorage){
             const contacts = localStorage.getItem("contacts");
             if(contacts){
-                displayContacts(JSON.parse(contacts))
+                displayContacts(JSON.parse(contacts));
             }
         }
     }
@@ -44,7 +44,10 @@ function retrieveContacts(){
             }
         }
 
-    }
+    };
+
+    xhr.open("get,url");
+    xhr.send();
 
 }
 
